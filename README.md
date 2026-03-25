@@ -13,7 +13,7 @@ This PoC uses a decoupled, event-driven architecture designed to move at the spe
 * **AI Deployment Agent (Python):** RAG-based needs analysis with a dual-prompt "Guardrail" system.
 * **Resilience Layer (Custom Pkg):** Native Circuit Breakers and Dead Letter Queue (DLQ) logic.
 
-    ## 🏗 Architecture
+## 🏗 Architecture
 ---
 
 ```mermaid
@@ -75,7 +75,6 @@ graph TD
     class GW,TE,AI internal;
     class KF,DLQ,DB persistence;
     class Res,GR resilience;
-
 ```
 ---
 
@@ -99,6 +98,8 @@ In complex enterprise deployments, things break. This PoC includes specific patt
 │   ├── resilience/          <-- Circuit Breaker & Retry Logic
 │   └── schema-registry/     <-- Contract Enforcement
 └── terraform/               <-- IaC Blueprints (GCP/Confluent/Cloud Run)
+```
+
 ---
 4. Infrastructure Blueprint (IaC)
 While this PoC focuses on the logic layer, the production deployment is designed for Google Cloud (GCP) and Confluent Cloud:
