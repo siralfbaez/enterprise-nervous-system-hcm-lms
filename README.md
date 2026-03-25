@@ -17,53 +17,54 @@ This PoC uses a decoupled, event-driven architecture designed to move at the spe
 ---
 
 ```mermaid
+
 graph TD
-    %% Define Nodes
+    %% Define Nodes with Quoted Strings to handle parentheses
     subgraph "External Enterprise Ecosystem"
-        WD[Workday HCM (New Hire Event)]
-        SF[Salesforce CRM (Performance Data)]
-        LMS[Cornerstone LMS (Certifications)]
+        WD["Workday HCM (New Hire Event)"]
+        SF["Salesforce CRM (Performance Data)"]
+        LMS["Cornerstone LMS (Certifications)"]
     end
 
     subgraph "Arist Integration Surface"
-        GW[Go Integration Gateway (Gin)]
-        Res[Pkg: Resilience (Circuit Breaker/Auth)]
+        GW["Go Integration Gateway (Gin)"]
+        Res["Pkg: Resilience (Circuit Breaker/Auth)"]
     end
 
     subgraph "The Nervous System (Internal Bus)"
-        KF[Confluent Kafka (Enterprise Events)]
-        DLQ[Dead Letter Queue (Bad Data)]
+        KF["Confluent Kafka (Enterprise Events)"]
+        DLQ["Dead Letter Queue (Bad Data)"]
     end
 
     subgraph "Processing & Transformation Layer"
-        TE[Go Transformation Engine (Type-Safe Mapper)]
+        TE["Go Transformation Engine (Type-Safe Mapper)"]
     end
 
     subgraph "Intelligence & Deployment Layer"
-        AI[Python AI Agent (Needs Analysis)]
-        GR[AI Guardrails (Security Check)]
+        AI["Python AI Agent (Needs Analysis)"]
+        GR["AI Guardrails (Security Check)"]
     end
 
     subgraph "Arist Platform (Native Context)"
-        LP[Native Learning Path]
-        DB[Vector DB (Knowledge Base)]
+        LP["Native Learning Path"]
+        DB["Vector DB (Knowledge Base)"]
     end
 
     %% Define Flow & Connections
-    WD -- Webhook (HTTPS/OAuth2) --> GW
-    SF -- Webhook --> GW
-    LMS -- Webhook --> GW
+    WD -- "Webhook (HTTPS/OAuth2)" --> GW
+    SF -- "Webhook" --> GW
+    LMS -- "Webhook" --> GW
 
-    GW -- Validate Contract/Auth --> Res
-    Res -- Produce Event --> KF
+    GW -- "Validate Contract/Auth" --> Res
+    Res -- "Produce Event" --> KF
 
-    KF -- Consume Raw Event --> TE
-    TE -- Map to Canonical Schema --> AI
-    TE -- Invalid Schema detected --> DLQ
+    KF -- "Consume Raw Event" --> TE
+    TE -- "Map to Canonical Schema" --> AI
+    TE -- "Invalid Schema detected" --> DLQ
 
-    AI -- Chain 1: RAG & Generate Plan --> GR
-    DB -- Provide Context --> AI
-    GR -- Chain 2: Security & PII Check --> LP
+    AI -- "Chain 1: RAG & Generate Plan" --> GR
+    DB -- "Provide Context" --> AI
+    GR -- "Chain 2: Security & PII Check" --> LP
 
     %% Apply Basic Styling
     classDef external fill:#f9f,stroke:#333,stroke-width:2px;
@@ -75,6 +76,7 @@ graph TD
     class GW,TE,AI internal;
     class KF,DLQ,DB persistence;
     class Res,GR resilience;
+
 ```
 ---
 
