@@ -134,6 +134,17 @@ curl -X POST http://localhost:8080/v1/ingest \
     "event_id": "NEW_HIRE_101",
     "payload": {"email": "cheetah@golf.com", "dept": "Engineering"}
   }'
+  
+%% Apply High-Visibility Styling
+    classDef external fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    classDef internal fill:#24292e,stroke:#58a6ff,stroke-width:1px,color:#fff;
+    classDef persistence fill:#161b22,stroke:#3fb950,stroke-width:1px,stroke-dasharray: 5 5,color:#fff;
+    classDef resilience fill:#6e1d13,stroke:#f85149,stroke-width:2px,stroke-dasharray: 3 3,color:#fff;
+
+    class WD,SF,LMS external;
+    class GW,TE,AI internal;
+    class KF,DLQ,DB persistence;
+    class Res,GR resilience;
 
 ```
 Step 3: Run AI Analysis
