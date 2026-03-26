@@ -66,16 +66,30 @@ graph TD
     DB -- "Provide Context" --> AI
     GR -- "Chain 2: Security & PII Check" --> LP
 
-    %% Apply Basic Styling
-    classDef external fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef internal fill:#bbf,stroke:#333,stroke-width:1px;
-    classDef persistence fill:#dfd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5;
-    classDef resilience fill:#fdd,stroke:#333,stroke-width:2px,stroke-dasharray: 3 3;
+   %% Apply High-Visibility White Styling
+    classDef external fill:#b33086,stroke:#f9f,stroke-width:2px,color:#fff;
+    classDef internal fill:#1c2128,stroke:#58a6ff,stroke-width:1px,color:#fff;
+    classDef persistence fill:#0d1117,stroke:#3fb950,stroke-width:1px,stroke-dasharray: 5 5,color:#fff;
+    classDef resilience fill:#440505,stroke:#f85149,stroke-width:2px,stroke-dasharray: 3 3,color:#fff;
 
     class WD,SF,LMS external;
     class GW,TE,AI internal;
     class KF,DLQ,DB persistence;
     class Res,GR resilience;
+
+    %% THE "HAMMER" - Force White Font for All Nodes
+    style WD color:#fff
+    style SF color:#fff
+    style LMS color:#fff
+    style GW color:#fff
+    style Res color:#fff
+    style KF color:#fff
+    style DLQ color:#fff
+    style TE color:#fff
+    style AI color:#fff
+    style GR color:#fff
+    style LP color:#fff
+    style DB color:#fff
 
 ```
 ---
@@ -135,31 +149,6 @@ curl -X POST http://localhost:8080/v1/ingest \
     "payload": {"email": "cheetah@golf.com", "dept": "Engineering"}
   }'
   
-%% Apply High-Visibility White Styling
-    classDef external fill:#b33086,stroke:#f9f,stroke-width:2px,color:#fff;
-    classDef internal fill:#1c2128,stroke:#58a6ff,stroke-width:1px,color:#fff;
-    classDef persistence fill:#0d1117,stroke:#3fb950,stroke-width:1px,stroke-dasharray: 5 5,color:#fff;
-    classDef resilience fill:#440505,stroke:#f85149,stroke-width:2px,stroke-dasharray: 3 3,color:#fff;
-
-    class WD,SF,LMS external;
-    class GW,TE,AI internal;
-    class KF,DLQ,DB persistence;
-    class Res,GR resilience;
-
-    %% THE "HAMMER" - Force White Font for All Nodes
-    style WD color:#fff
-    style SF color:#fff
-    style LMS color:#fff
-    style GW color:#fff
-    style Res color:#fff
-    style KF color:#fff
-    style DLQ color:#fff
-    style TE color:#fff
-    style AI color:#fff
-    style GR color:#fff
-    style LP color:#fff
-    style DB color:#fff
-
 ```
 Step 3: Run AI Analysis
 
