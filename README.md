@@ -135,8 +135,8 @@ curl -X POST http://localhost:8080/v1/ingest \
     "payload": {"email": "cheetah@golf.com", "dept": "Engineering"}
   }'
   
-%% Apply High-Visibility Styling
-    classDef external fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+%% Apply High-Visibility White Styling
+    classDef external fill:#b33086,stroke:#f9f,stroke-width:2px,color:#fff;
     classDef internal fill:#1c2128,stroke:#58a6ff,stroke-width:1px,color:#fff;
     classDef persistence fill:#0d1117,stroke:#3fb950,stroke-width:1px,stroke-dasharray: 5 5,color:#fff;
     classDef resilience fill:#440505,stroke:#f85149,stroke-width:2px,stroke-dasharray: 3 3,color:#fff;
@@ -146,10 +146,10 @@ curl -X POST http://localhost:8080/v1/ingest \
     class KF,DLQ,DB persistence;
     class Res,GR resilience;
 
-    %% FORCE CSS OVERRIDE (The "Hammer")
-    style WD color:#000
-    style SF color:#000
-    style LMS color:#000
+    %% THE "HAMMER" - Force White Font for All Nodes
+    style WD color:#fff
+    style SF color:#fff
+    style LMS color:#fff
     style GW color:#fff
     style Res color:#fff
     style KF color:#fff
