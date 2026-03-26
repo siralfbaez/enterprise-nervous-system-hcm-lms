@@ -4,7 +4,7 @@
 Most enterprises approach AI integrations with a "point-to-point" mindset—polling an HCM like Workday or an LMS like Cornerstone every few hours. This creates a **stale data problem**. If a New Hire starts at 9:00 AM, but the AI doesn't see them until 2:00 PM, the "First 30 Minutes" engagement window—the most critical time for onboarding—is already lost.
 
 ## **The Solution: Event-Driven Intelligence**
-In this PoC, I’ve moved away from "polling" and toward a **Data Nervous System**. By using **Kafka and Flink**, we treat employee data as a live stream of events rather than a static database.
+IN this PoC, I’ve moved away from "polling" and toward a **Data Nervous System**. By using **Kafka and Flink**, we treat employee data as a live stream of events rather than a static database.
 
 * **Real-Time Agility:** The second a "New Hire" event triggers in the HCM, it ripples through the Nervous System, triggering AI-driven actions instantly.
 * **Decoupled Architecture:** The AI Agent doesn't need to know *how* Workday or Salesforce works; it only needs to listen to the canonical "Employee" topic. This allows us to swap source systems (e.g., moving from Workday to SAP) without rewriting a single line of AI logic.
