@@ -137,14 +137,28 @@ curl -X POST http://localhost:8080/v1/ingest \
   
 %% Apply High-Visibility Styling
     classDef external fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
-    classDef internal fill:#24292e,stroke:#58a6ff,stroke-width:1px,color:#fff;
-    classDef persistence fill:#161b22,stroke:#3fb950,stroke-width:1px,stroke-dasharray: 5 5,color:#fff;
-    classDef resilience fill:#6e1d13,stroke:#f85149,stroke-width:2px,stroke-dasharray: 3 3,color:#fff;
+    classDef internal fill:#1c2128,stroke:#58a6ff,stroke-width:1px,color:#fff;
+    classDef persistence fill:#0d1117,stroke:#3fb950,stroke-width:1px,stroke-dasharray: 5 5,color:#fff;
+    classDef resilience fill:#440505,stroke:#f85149,stroke-width:2px,stroke-dasharray: 3 3,color:#fff;
 
     class WD,SF,LMS external;
     class GW,TE,AI internal;
     class KF,DLQ,DB persistence;
     class Res,GR resilience;
+
+    %% FORCE CSS OVERRIDE (The "Hammer")
+    style WD color:#000
+    style SF color:#000
+    style LMS color:#000
+    style GW color:#fff
+    style Res color:#fff
+    style KF color:#fff
+    style DLQ color:#fff
+    style TE color:#fff
+    style AI color:#fff
+    style GR color:#fff
+    style LP color:#fff
+    style DB color:#fff
 
 ```
 Step 3: Run AI Analysis
