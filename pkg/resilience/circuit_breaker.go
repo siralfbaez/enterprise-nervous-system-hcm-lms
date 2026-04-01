@@ -17,7 +17,7 @@ func (cb *CircuitBreaker) Execute(task func() error) error {
 	cb.mu.Lock()
 	if cb.IsOpen {
 		cb.mu.Unlock()
-		return errors.New("circuit_breaker_open: rejecting_request_to_protect_system")
+		return errors.New("circuit_breaker_open: Rejecting_request_to_protect_system")
 	}
 	cb.mu.Unlock()
 
